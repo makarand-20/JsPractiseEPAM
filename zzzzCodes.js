@@ -381,3 +381,87 @@ function twoSum2(arr, target){
 console.log("two sum o(n)", twoSum2(arr12, 8));
 
 
+//Write a function that performs binary search on a sorted array of integers
+let arr13 = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16];
+function binarySearch(arr, target){
+    let start = 0;
+    let end = arr.length-1;
+    while(start <= end){
+        let mid = Math.floor((start+end)/2);
+        if(arr[mid] === target){
+            return mid;
+        }
+        else if(arr[mid] < target){
+            start = mid+1;
+        }
+        else{
+            end = mid-1;
+        }
+    }
+    return -1;
+}
+console.log("binary search", binarySearch(arr13, 8));
+
+
+//Implement a function that returns an updated array with r right rotations on an array of integers a .
+function rotateRight(arr,rotations){
+    if(rotations == 0) return arr;
+    for(let i = 0; i < rotations;i++){
+      let element = arr.pop();
+      arr.unshift(element);
+    }
+    return arr;
+  }
+console.log(rotateRight([2, 3, 4, 5, 7], 3));
+console.log(rotateRight([44, 1, 22, 111], 5));
+
+
+// Write the code to find the vowels
+const findVowels = str => {
+  let count = 0
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  for(let char of str.toLowerCase()) {
+    if(vowels.includes(char)) {
+      count++
+    }
+  }
+  return count
+}
+console.log(findVowels('Makarand'))
+
+
+//In JavaScript, how do you turn an Object into an Array []?
+const objj = {
+    name: 'Makarand',
+    age: 25,
+    city: 'Pune'
+}
+console.log(Object.keys(objj));
+console.log(Object.values(objj));
+console.log(Object.entries(objj));
+
+
+//How to remove duplicate characters from String?
+const removeDuplicate = str => {
+    let result = ''
+    for(let char of str) {
+      if(result.indexOf(char) === -1) {
+        result += char
+      }
+    }
+    return result
+}
+console.log(removeDuplicate('Makarand'))
+
+
+//
+
+
+for (let i = 0; i < 10; i++) {
+    const b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  setTimeout(() => console.log(b[i]), 1000);
+}
+
+for (var i = 0; i < 10; i++) {
+    setTimeout(() => console.log(b[i]), 1000);
+  }
