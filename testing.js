@@ -264,3 +264,8 @@ function xyz(){
     return abc;
 }
 console.log("Clouser :", xyz()());
+
+//
+
+
+

@@ -890,12 +890,88 @@ const removeDuplicate = str => {
 console.log(removeDuplicate('Makarand'))
 
 
-//
-for (let i = 0; i < 10; i++) {
-    const b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  setTimeout(() => console.log(b[i]), 1000);
+//Write the function getMaxNumbers which takes a two-dimensional array of numbers as a parameter and returns an array with the maximum numbers from each nested array.
+const arrrr = [[1,2,3,4], [5,6,7,8], [9,10,11,12]];
+const getMaxNumbers = arr => {
+    let result = [];
+    arr.forEach(item => {
+        result.push(Math.max(...item));
+    })
+    return result;
 }
+console.log("Max [][]", getMaxNumbers(arrrr));
 
-for (var i = 0; i < 10; i++) {
-    setTimeout(() => console.log(b[i]), 1000);
+
+//get duplicate elements from array
+const arrr = [1,2,3,4,5,6,7,8,9,10,1,3,4];
+const getDuplicate = arr => {
+    let result = []
+    arr.forEach((item, index) => {
+      if(arr.indexOf(item) !== index) {
+        result.push(item)
+      }
+    })
+    return result
 }
+console.log("get Duplicate :", getDuplicate(arrr));
+
+
+//compare 2 arrays
+const ar1 = [1,2,3,4,5];
+const ar2 = [1,2,3,8,5];
+function compareArrays(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+  
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+  
+    return true;
+}
+console.log("compare arrays :", compareArrays(ar1, ar2));
+  
+
+//Write the function mergeArrays to accept any number of arrays as arguments. The function should return one array consisting of all elements of all arrays passed as parameters.
+const mergeArrays = (...args) => {
+    let result = [];
+    args.forEach(item => {
+        result = [...result, ...item];
+    })
+    return result;
+}
+console.log("merge arrays :", mergeArrays([1,2,3], [4,5,6], [7,8,9]));
+
+
+//Write the JavaScript function divideArrays to separate an array into smaller arrays of a specified size.
+const divideArrays = (arr, size) => {
+    let result = [];
+    for(let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+}
+console.log("divide arrays :", divideArrays([1,2,3,4,5,6,7,8,9,10], 4));
+
+
+//Write the function encrypt to encrypt a string with Caesar's code. Each letter in the plaintext is replaced by a letter a fixed number of positions down the alphabet.
+const encrypt = (str, num) => {
+    let result = '';
+    for(let i = 0; i < str.length; i++) {
+        let charCode = str.charCodeAt(i);
+        if(charCode >= 65 && charCode <= 90) {
+            result += String.fromCharCode(((charCode - 65 + num) % 26) + 65);
+        }
+        else if(charCode >= 97 && charCode <= 122) {
+            result += String.fromCharCode(((charCode - 97 + num) % 26) + 97);
+        }
+        else {
+            result += str[i];
+        }
+    }
+    return result;
+}
+console.log("encrypt :", encrypt('Makarand', 10));
