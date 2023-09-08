@@ -209,3 +209,58 @@ function frequency(str){
     return obj;
 }
 console.log(frequency("abca"));
+
+
+//
+const ar = [1,2,3,4,5];
+function sum(){
+    let sum = 0;
+    sum = ar.reduce((acc, ele) => {
+        return acc + ele
+    },0);
+    return sum;
+}
+console.log(sum(ar));
+
+
+// destructuring the numbers for swapping their values
+let num1 = 10;
+let num2 = 20;
+[num1, num2] = [num2, num1];
+console.log("Swap :",num1, num2);
+
+//
+console.log(+("165"+"1") + 10);
+
+//
+var bool = new Boolean(false);
+if (bool) {
+    console.log(`Hello`);
+} else {
+    console.log(`Error`);
+}
+
+// consider default by default
+var ad = 3; 
+switch (ad) {
+    default:
+        ad += 4;
+    case 1:
+        ad += 2;
+    break;
+    case 2:
+        ad += 3;
+    break;
+}
+console.log(ad);
+
+//
+function xyz(){
+    let a = 10;
+    function abc(){
+        let b = 20;
+        return a+b;
+    }
+    return abc;
+}
+console.log("Clouser :", xyz()());
