@@ -200,3 +200,12 @@ example({ a:1, b:2, c:3 });
 example(1,2,3);
 
 //
+function frequency(str){
+    let obj = {};
+    str.split("").forEach(function(ele){
+        obj[ele] = obj[ele] + 1 || 1;
+    }
+    );
+    return obj;
+}
+console.log(frequency("abca"));
