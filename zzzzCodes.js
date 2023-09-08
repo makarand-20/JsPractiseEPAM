@@ -975,3 +975,97 @@ const encrypt = (str, num) => {
     return result;
 }
 console.log("encrypt :", encrypt('Makarand', 10));
+
+
+// Function to count full days before New Year
+function getFullDaysBeforeNewYear(date, month) {
+if (
+    isNaN(date) || isNaN(month) ||
+    date <= 0 || date > 31 || month <= 0 || month > 12
+) {
+    return null;
+}
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const newYear = new Date(currentYear + 1, 0, 1);
+
+const inputDate = new Date(currentYear, month - 1, date);
+const timeDifference = newYear - inputDate;
+const fullDays = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
+
+return fullDays + 1; // Including the current date
+}
+console.log("full days :", getFullDaysBeforeNewYear(1, 1));
+
+
+
+// Function to format a date with weekday
+function formatWithWeekday(date) {
+if (!date) {
+    return '';
+}
+
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const dayOfWeek = daysOfWeek[date.getDay()];
+const dayOfMonth = date.getDate();
+const month = months[date.getMonth()];
+const year = date.getFullYear();
+
+return `${dayOfWeek}, ${dayOfMonth}, ${month} ${year}`;
+}
+console.log("format with weekday :", formatWithWeekday(new Date()));
+
+
+
+// Function to check if a date is valid
+function isValidDate(date) {
+return date instanceof Date && !isNaN(date);
+}
+
+// Function to check if one date is after another
+function isAfter(date, dateToCompare) {
+if (!isValidDate(date) || !isValidDate(dateToCompare)) {
+    return false;
+}
+
+return date > dateToCompare;
+}
+console.log("is after date :", 
+isAfter(new Date(2021, 0, 12), new Date(2021, 0, 6)));
+
+
+
+// Function to format distance to now in words
+function formatDistanceToNow(date) {
+    if (!isValidDate(date)) {
+        return 'Date is unknown';
+    }
+
+    const now = new Date();
+    const timeDifference = now - date;
+    const seconds = Math.floor(timeDifference / 1000);
+
+    if (seconds <= 30) {
+        return 'less than a minute';
+    } else if (seconds <= 90) {
+        return '1 minute';
+    } else if (seconds <= 2670) {
+        return `${Math.round(seconds / 60)} minutes`;
+    } else if (seconds <= 5370) {
+        return 'about 1 hour';
+    } else {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const seconds = date.getSeconds().toString().padStart(2, '0');
+        
+        return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
+    }
+}
+console.log("format distance to now :", formatDistanceToNow(new Date()));
+
