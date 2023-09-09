@@ -8,7 +8,7 @@ console.log("Sum :", sumOfTwo(1,2));
 // find maximum of array
 let arr01 = [1,2,3,4,5,66,7,8,9,10];
 function findMax(arr){
-    return Math.max(...arr);
+    return Math.max(...arr01);
 }
 console.log("Max no :", findMax(arr01));
 
@@ -39,7 +39,7 @@ console.log("Reverse :", reverseString(str22));
 // return even numbers in array
 let arr22 = [1,2,3,4,5,6,7,8,9,10];
 function evenReturn(arr){
-    return arr.filter(num => num%2==0);
+    return arr22.filter(ele => ele % 2 == 0)
 }
 console.log("Even no :", evenReturn(arr22));
 
@@ -256,7 +256,7 @@ console.log("Deep clone :", deepClone(obj11));
 let arr77 = [1,2,3,4,5,6,7,8,9,10];
 let arr88 = [11,12,13,14,15,16,17,18,19,20];
 function mergeSortedArrays(arr7, arr8){
-    return [...arr7, ...arr8].sort((a,b) => a-b);
+    return [...arr7, ...arr8];
 }
 console.log("Merge sorted array :", mergeSortedArrays(arr77, arr88));
 
@@ -281,7 +281,7 @@ function mergeSortedArrays2(arr7, arr8){
 
 
 //Write a function that checks if a given string is a palindrome, considering only alphanumeric characters and ignoring cases.
-let str4 = "Makarand";
+let str4 = "Madam";
 function isPalindrome2(str){
     let newStr = str.replace(/[^a-zA-Z0-9]/g,"").toLowerCase();
     return newStr === newStr.split("").reverse().join("");
@@ -337,7 +337,7 @@ function sumOfArray(arr){
 console.log("Sum of array :", sumOfArray(arr77));
 
 
-//Given a string, write a function to count the occurrences of each character in the string.
+//Given a string, write a function to count the occurrences/frequency of each character in the string.
 let str8 = "Makarand";
 function countChar(str){
     let obj = {};
@@ -424,7 +424,8 @@ function randomString(length){
     let str = "";
     let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for(let i = 0; i < length; i++){
-        str += chars.charAt(Math.floor(Math.random() * chars.length));
+        str += chars.charAt
+        (Math.floor(Math.random() * chars.length));
     }
     return str;
 }
